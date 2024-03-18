@@ -1,19 +1,25 @@
 {
-  "name": "turbo-baby",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server/server.js",
- "scripts": {
-    "start": "node server/server.js",
-    "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "concurrently": "^8.2.2"
-  }
+    "name": "astrobaby",
+    "version": "1.0.0",
+    "description": "Full-stack MERN application with Vite/React frontend and GraphQL backend.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+        "install:server": "cd server && npm install",
+        "install:client": "cd client && npm install",
+        "seed": "cd server && npm run seed",
+        "build": "npm run build:client && npm run build:server",
+        "build:client": "cd client && npm run build",
+        "build:server": "cd server && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "engines": {
+        "node": "16.x",
+        "npm": "8.x"
+    },
+    "dependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "license": "MIT"
 }
