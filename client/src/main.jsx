@@ -11,6 +11,7 @@ import "./App.css";
 function App() {
     return (
         <>
+        
             <Router>
                 <div>
                     <Nav /> {/* Render your NavTabs component */}
