@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+<<<<<<< HEAD
   "scripts": {
+=======
+ "scripts": {
+>>>>>>> 16d96dd0e2bfc94ed72ff1c95c99cbbbe4d6c35f
     "start": "node server/server.js",
     "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -14,6 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
   "concurrently": "^8.2.2"
+=======
+    "concurrently": "^8.2.2"
+>>>>>>> 16d96dd0e2bfc94ed72ff1c95c99cbbbe4d6c35f
   }
 }

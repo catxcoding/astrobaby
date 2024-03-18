@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //28 stu-mini
 import { Outlet } from "react-router-dom";
 import {
@@ -41,10 +42,33 @@ function App() {
                 </Container>
             </StoreProvider>
         </ApolloProvider>
+=======
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import Nav from "./components/nav";
+import Login from "./pages/login";
+
+import "./App.css";
+
+function App() {
+    return (
+        <>
+            <Router>
+                <div>
+                    <Nav /> {/* Render your NavTabs component */}
+                    <Routes>
+                        <Route exact path="/" element={<Home />} />
+                        <Route path="/Login" element={<Login />} />
+                    </Routes>
+                </div>
+            </Router>
+        </>
+>>>>>>> 16d96dd0e2bfc94ed72ff1c95c99cbbbe4d6c35f
     );
 }
 
 export default App;
+<<<<<<< HEAD
 
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Home from "./pages/home";
@@ -70,3 +94,5 @@ export default App;
 // }
 
 // export default App;
+=======
+>>>>>>> 16d96dd0e2bfc94ed72ff1c95c99cbbbe4d6c35f

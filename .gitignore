@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+node_modules/
+client/node_modules/
+>>>>>>> 16d96dd0e2bfc94ed72ff1c95c99cbbbe4d6c35f
 # Logs
 logs
 *.log
