@@ -42,7 +42,7 @@ const Home =()=> {
                 />
                 <TextField
                   label="Due Date"
-                  type="date"
+                  type=""
                   variant="outlined"
                   fullWidth
                   value={dueDate}
