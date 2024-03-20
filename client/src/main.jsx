@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Home from './pages/home';
 import Login from './pages/login';
@@ -19,9 +18,7 @@ const router = createBrowserRouter([
         element: <Login />
       },]}])
 
-      ReactDOM.render(
-        <React.StrictMode>
-          <RouterProvider router={router} />
-        </React.StrictMode>,
-        document.getElementById("root")
-      );
+    
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
+);
