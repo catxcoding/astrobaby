@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ProductItem from "../ProductItem";
 import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
@@ -7,7 +7,7 @@ import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import { Container, Typography, Grid } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
-import spinner from "../../assets/spinner.gif";
+// import spinner from "../../assets/spinner.gif";
 
 function ProductList() {
     const [state, dispatch] = useStoreContext();
