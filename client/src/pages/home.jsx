@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import ProductList from "../components/ProductList";
+import Cart from "../components/Cart";
+import CategoryMenu from "../components/CategoryMenu";
 import { Typography, Button, Container, Grid, Card, CardContent, TextField } from '@mui/material';
 
 const Home =()=> {
   const [nickname, setNickname] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [astroSign, setAstroSign] = useState('');
+  const [showStore, setShowStore] = useState(false); 
 
   // Function to calculate astrological sign based on due date
   const calculateAstroSign = () => {
@@ -17,9 +21,10 @@ const Home =()=> {
   };
 
   const goToStorePage = () => {
+    setShowStore(true);
+   
     // Logic to navigate to the store page
     // You can use react-router-dom or any other method for navigation
-    console.log('Navigating to the store page');
   };
 
   return (
@@ -67,7 +72,14 @@ const Home =()=> {
           </Grid>
         </Grid>
       </Container>
+      {showStore && ( // Render store components if showStore is true
+        <div className="container">
+          <CategoryMenu />
+          <ProductList />
+          <Cart />
     </div>
+     )}
+        </div>
   );
 }
 

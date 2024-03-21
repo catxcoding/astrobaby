@@ -3,6 +3,8 @@ import App from './App.jsx'
 import Home from './pages/home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Detail from './pages/Detail';
+import OrderHistory from './pages/OrderHistory';
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const router = createBrowserRouter([
@@ -20,6 +22,12 @@ const router = createBrowserRouter([
       },{
         path: '/signup',
         element: <Signup />
+      },{
+        path: '/orderHistory',
+        element: <OrderHistory />
+      }, {
+        path: '/products/:id',
+        element: <Detail />
       }]}])
 
     
