@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-      "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node config/seeds.js"
+        "start": "node server.js",
+        "watch": "nodemon",
+        "seed": "node config/seeds.js"
     },
     "repository": {
         "type": "git",
