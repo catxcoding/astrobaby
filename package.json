@@ -4,7 +4,7 @@
     "description": "Full-stack MERN application with Vite/React frontend and GraphQL backend.",
     "main": "index.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "node server/server.js",
         "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
         "install:server": "cd server && npm install",
         "install:client": "cd client && npm install",
@@ -14,7 +14,6 @@
         "build:server": "cd server && npm run build",
         "heroku-postbuild": "npm run build"
     },
-   
     "dependencies": {
         "@apollo/server": "^4.10.1",
         "bcrypt": "^5.1.1",
@@ -24,5 +23,8 @@
         "jsonwebtoken": "^8.5.1",
         "mongodb": "^6.5.0"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
 }

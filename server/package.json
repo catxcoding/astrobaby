@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-      "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node config/seeds.js"
+        "start": "node server/server.js",
+        "watch": "nodemon",
+        "seed": "node config/seeds.js"
     },
     "repository": {
         "type": "git",
@@ -24,6 +24,7 @@
         "mongoose": "^7.0.2"
     },
     "devDependencies": {
-        "eslint": "^8.57.0"
+        "eslint": "^8.57.0",
+        "nodemon": "^3.1.0"
     }
 }
