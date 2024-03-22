@@ -2,9 +2,12 @@
     "name": "server",
     "version": "1.0.0",
     "main": "index.js",
+    "engines": {
+        "node": "21.6.1"
+    },
     "scripts": {
-        "start": "node server/server.js",
-        "watch": "nodemon",
+        "start": "server.js",
+        "watch": "nodemon server.js",
         "seed": "node config/seeds.js"
     },
     "repository": {
