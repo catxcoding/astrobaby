@@ -41,6 +41,8 @@ function CategoryMenu() {
             currentCategory: id,
         });
     };
+    
+console.log(categories)
 
     return (
         <div>
