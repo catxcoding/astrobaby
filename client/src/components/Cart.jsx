@@ -9,7 +9,6 @@
 // import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../utils/actions";
 // import { Button, Typography, Box } from "@mui/material";
 
-
 // // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 // const stripePromise = loadStripe(
 //     "pk_test_51OxtV5DbZLGXtOEnLmMqJnsyhIkFu7ldU9CvSWb6lvuul4n71xSiQRqy1bE5DEULWrwwB8PbbMuCCATTkVsAv9J200fbjXOscU"
@@ -120,6 +119,8 @@
 // };
 
 // export default Cart;
+
+// Import necessary modules
 import { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
@@ -179,66 +180,76 @@ const Cart = () => {
         });
     }
 
-    function closePage() {
-        window.close();
-    }
-
     return (
-        <Box
-            className="cart"
-            sx={{
-                position: "fixed",
-                top: 0,
-                right: 0,
-                minWidth: "20%",
-                maxWidth: "30%",
-                maxHeight: "60%",
-                backgroundColor: "var(--light)",
-                overflow: "auto",
-                padding: ".5rem",
-                boxShadow: "0 0 1rem rgba(0, 0, 0, .5)",
-                borderBottomLeftRadius: ".5rem",
-            }}
-        >
-            <div className="close" onClick={closePage}>
-                [close]
-            </div>
-            <Typography variant="h4">Shopping Cart</Typography>
-            {state.cart.length ? (
-                <div>
-                    {state.cart.map((item) => (
-                        <CartItem key={item._id} item={item} />
-                    ))}
-
-                    <Box display="flex" justifyContent="space-between" mt={2}>
-                        <Typography variant="h6">
-                            <strong>Total: ${calculateTotal()}</strong>
-                        </Typography>
-
-                        {Auth.loggedIn() ? (
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={submitCheckout}
-                            >
-                                Checkout
-                            </Button>
-                        ) : (
-                            <Typography variant="body1">
-                                (log in to check out)
-                            </Typography>
-                        )}
-                    </Box>
+        <>
+            {!state.cartOpen ? (
+                <div className="cart-closed" onClick={toggleCart}>
+                    <span role="img" aria-label="trash">
+                        🛒
+                    </span>
                 </div>
             ) : (
-                <Typography variant="h6">
-                    <span role="img" aria-label="shocked">
-                        😱
-                    </span>
-                    You haven't added anything to your cart yet!
-                </Typography>
+                <Box
+                    className="cart"
+                    sx={{
+                        position: "fixed",
+                        top: 0,
+                        right: 0,
+                        minWidth: "20%",
+                        maxWidth: "30%",
+                        maxHeight: "60%",
+                        backgroundColor: "var(--light)",
+                        overflow: "auto",
+                        padding: ".5rem",
+                        boxShadow: "0 0 1rem rgba(0, 0, 0, .5)",
+                        borderBottomLeftRadius: ".5rem",
+                    }}
+                >
+                    <div className="close" onClick={toggleCart}>
+                        [close]
+                    </div>
+                    <Typography variant="h4">Shopping Cart</Typography>
+                    {state.cart.length ? (
+                        <div>
+                            {state.cart.map((item) => (
+                                <CartItem key={item._id} item={item} />
+                            ))}
+
+                            <Box
+                                display="flex"
+                                justifyContent="space-between"
+                                mt={2}
+                            >
+                                <Typography variant="h6">
+                                    <strong>Total: ${calculateTotal()}</strong>
+                                </Typography>
+
+                                {Auth.loggedIn() ? (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={submitCheckout}
+                                    >
+                                        Checkout
+                                    </Button>
+                                ) : (
+                                    <Typography variant="body1">
+                                        (log in to check out)
+                                    </Typography>
+                                )}
+                            </Box>
+                        </div>
+                    ) : (
+                        <Typography variant="h6">
+                            <span role="img" aria-label="shocked">
+                                😱
+                            </span>
+                            You haven't added anything to your cart yet!
+                        </Typography>
+                    )}
+                </Box>
             )}
-        </Box>
+        </>
     );
 };
 
