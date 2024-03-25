@@ -34,12 +34,28 @@ db.once('open', async () => {
       quantity: 50
     },
     {
+      name: 'Adorable Ram Plush',
+      description: 'Adorable ram with its own set of red pajamas for the Aries babies!',
+      image: 'baby-ram-onesie.jpg',
+      category: categories[0]._id,
+      price: 14.99,
+      quantity: 40
+    },
+    {
       name: 'Taurus Plush Toy',
       description: 'Soft and cuddly plush toy perfect for little Taurus babies!',
       image: 'taurus-plush-toy.jpg',
       category: categories[1]._id,
       price: 14.99,
       quantity: 40
+    },
+    {
+      name: 'Taures Night Light',
+      description: 'A soft night light for your deeming Taures babies!',
+      image: 'Taures-night-light.jpg',
+      category: categories[1]._id,
+      price: 19.99,
+      quantity: 20
     },
     {
       name: 'Gemini Baby Book',
@@ -50,12 +66,28 @@ db.once('open', async () => {
       quantity: 30
     },
     {
+      name: 'Gemini Power Ranger',
+      description: 'This dual-sided TA at the coding bootcamp embodies the Gemini spirit, Nirav the Gemini Power Ranger!',
+      image: 'gemini-nirav.jpg',
+      category: categories[2]._id,
+      price: 14.99,
+      quantity: 25
+    },
+    {
       name: 'Cancer Moon Night Light',
       description: 'Gentle night light shaped like a crescent moon for calming Cancer babies!',
       image: 'cancer-moon-night-light.jpg',
       category: categories[3]._id,
       price: 19.99,
       quantity: 20
+    },
+    {
+      name: 'Cancer Music Player',
+      description: 'a music player for calming Cancer babies sleepy nap times!',
+      image: 'cancer-moon-night-light.jpg',
+      category: categories[3]._id,
+      price: 19.99,
+      quantity: 30
     },
     {
       name: 'Leo Lion Teether',
@@ -66,6 +98,14 @@ db.once('open', async () => {
       quantity: 40
     },
     {
+      name: 'Leo Lion Baby Mic',
+      description: 'This Golden Baby Mic is perfect for those Loud and Proud Leo Babies!',
+      image: 'leo-lion-rattle.jpg',
+      category: categories[4]._id,
+      price: 49.99,
+      quantity: 25
+    },
+    {
       name: 'Virgo Baby Blanket',
       description: 'Soft and cozy blanket with a delicate design for sweet Virgo babies!',
       image: 'virgo-baby-blanket.jpg',
@@ -74,11 +114,27 @@ db.once('open', async () => {
       quantity: 25
     },
     {
-      name: 'Libra Scales Teether',
-      description: 'Safe and soothing teether shaped like Libra scales for teething Libra babies!',
+      name: 'Virgo Baby Blocks',
+      description: 'baby blocks for those playful and sweet Virgo babies!',
+      image: 'virgo-baby-blocks.jpg',
+      category: categories[5]._id,
+      price: 12.99,
+      quantity: 30
+    },
+    {
+      name: 'Libra Scales Rattle',
+      description: 'Safe and soothing Rattle shaped like Libra scales for playful Libra babies!',
+      image: 'libra-scales-rattle.jpg',
+      category: categories[6]._id,
+      price: 9.99,
+      quantity: 35
+    },
+    {
+      name: 'Libra Paby Piano',
+      description: 'a wonderful piano for all those musical Libra babies!',
       image: 'libra-scales-teether.jpg',
       category: categories[6]._id,
-      price: 6.99,
+      price: 12.99,
       quantity: 35
     },
     {
@@ -90,11 +146,27 @@ db.once('open', async () => {
       quantity: 15
     },
     {
+      name: 'Scorpio Plush',
+      description: 'a cute scorpio plush for those imaginative Scorpio babies!',
+      image: 'scorpio-scorpion-mobile.jpg',
+      category: categories[7]._id,
+      price: 8.99,
+      quantity: 40
+    },
+    {
       name: 'Sagittarius Adventure Onesie',
       description: 'Explore-themed onesie for adventurous Sagittarius babies!',
       image: 'sagittarius-adventure-onesie.jpg',
       category: categories[8]._id,
       price: 11.99,
+      quantity: 45
+    },
+    {
+      name: 'Sagittarius stacking cups',
+      description: 'stacking cups for those studious Sagittarius babies!',
+      image: 'sagittarius-adventure-onesie.jpg',
+      category: categories[8]._id,
+      price: 7.99,
       quantity: 45
     },
     {
@@ -105,12 +177,28 @@ db.once('open', async () => {
       price: 9.99,
       quantity: 40
     },
+    {      
+      name: 'Capricorn Power Ranger',
+      description: 'The disciplined leader of the coding bootcamp, Capricorn Code Master Michael!',
+      image: 'capricorn-Micheal.jpg',
+      category: categories[9]._id,
+      price: 19.99,
+      quantity: 15 
+    },
     {
-      name: 'Aquarius Star Mobile',
-      description: 'Celestial-themed mobile with stars and moons for dreamy Aquarius babies!',
+      name: 'Aquarius Sippie Cup',
+      description: 'Celestial-themed sippie with stars for dreamy Aquarius babies!',
       image: 'aquarius-star-mobile.jpg',
       category: categories[10]._id,
-      price: 22.99,
+      price: 6.99,
+      quantity: 50
+    },
+    {
+      name: 'Aquarius ABCs',
+      description: 'Celestial-themed ABCs for those intellectual Aquarius babies!',
+      image: 'aquarius-star-mobile.jpg',
+      category: categories[10]._id,
+      price: 10.99,
       quantity: 30
     },
     {
@@ -119,6 +207,14 @@ db.once('open', async () => {
       image: 'pisces-ocean-play-mat.jpg',
       category: categories[11]._id,
       price: 29.99,
+      quantity: 20
+    },
+    {
+      name: 'Pisces Fish Puzzle',
+      description: 'Interactive puzzle with fish and plants for those imaginative Pisces babies!',
+      image: 'pisces-ocean-play-mat.jpg',
+      category: categories[11]._id,
+      price: 12.99,
       quantity: 20
     }
   ]);
