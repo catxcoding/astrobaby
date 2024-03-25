@@ -58,8 +58,8 @@ db.once('open', async () => {
       quantity: 20
     },
     {
-      name: 'Leo Lion Rattle',
-      description: 'Colorful lion-shaped rattle to entertain little Leo babies!',
+      name: 'Leo Lion Teether',
+      description: 'Colorful lion-shaped Teether to entertain little Leo babies!',
       image: 'leo-lion-rattle.jpg',
       category: categories[4]._id,
       price: 8.99,
