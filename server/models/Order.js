@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// helps mongodb store and recieve data for purchases and products
 const orderSchema = new Schema({
   purchaseDate: {
     type: Date,

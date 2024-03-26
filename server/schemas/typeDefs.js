@@ -1,3 +1,4 @@
+// all library configs that the user and server goes through 
 const typeDefs = `
   type Category {
     _id: ID

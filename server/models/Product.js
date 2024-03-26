@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+// gives starter library for products to further organize it into simple category list
 const productSchema = new Schema({
   name: {
     type: String,
