@@ -1,7 +1,4 @@
 import { useState } from "react";
-// import ProductList from "../components/ProductList";
-// import Cart from "../components/Cart";
-// import CategoryMenu from "../components/CategoryMenu";
 import {
     Typography,
     Button,
@@ -17,13 +14,33 @@ const Home = () => {
     const [nickname, setNickname] = useState("");
     const [dueDate, setDueDate] = useState("");
     const [astroSign, setAstroSign] = useState("");
-    const [showStore, setShowStore] = useState(false);
 
     // Function to calculate astrological sign based on due date
-    const calculateAstroSign = () => {
-        // Your logic to calculate the astrological sign based on the due date
-        // For simplicity, let's assume astro sign is based on the month of the due date
-        const month = new Date(dueDate).getMonth();
+
+    const calculateAstroSign = (dueDate) => {
+        const month = dueDate.getMonth();
+        const day = dueDate.getDate();
+
+        const cutoffDates = [
+            20, // Aquarius
+            19, // Pisces
+            21, // Aries
+            20, // Taurus
+            21, // Gemini
+            21, // Cancer
+            23, // Leo
+            23, // Virgo
+            23, // Libra
+            23, // Scorpio
+            22, // Sagittarius
+            20, // Capricorn
+        ];
+
+        let adjustedMonth = month;
+        if (day > cutoffDates[month]) {
+            adjustedMonth = (month + 1) % 12;
+        }
+
         const signs = [
             "Capricorn",
             "Aquarius",
@@ -38,32 +55,16 @@ const Home = () => {
             "Scorpio",
             "Sagittarius",
         ];
-        const astroSign = signs[month];
+
+        const astroSign = signs[adjustedMonth];
         setAstroSign(astroSign);
     };
-
-    // const goToStorePage = () => {
-    //   setShowStore(true);
-
-    // Logic to navigate to the store page
-    // You can use react-router-dom or any other method for navigation
-
-    // };
 
     const history = useNavigate();
     const goToStorePage = () => {
         // Logic to navigate to the store page
         history("/shop");
     };
-    // const goNavigate = () => {
-    //     const history = useNavigate();
-
-    //     const navigate = (path) => {
-    //         history(path);
-    //     };
-
-    //     return navigate;
-    // };
 
     return (
         <div>
@@ -120,7 +121,9 @@ const Home = () => {
                                 <br />
                                 <Button
                                     variant="contained"
-                                    onClick={calculateAstroSign}
+                                    onClick={() =>
+                                        calculateAstroSign(new Date(dueDate))
+                                    }
                                 >
                                     Calculate Astro Sign
                                 </Button>
@@ -152,13 +155,6 @@ const Home = () => {
                     </Grid>
                 </Grid>
             </Container>
-            {/* {showStore && ( // Render store components if showStore is true
-    //     <div className="container">
-    //       <CategoryMenu />
-    //       <ProductList />
-    //       <Cart />
-    // </div> */}
-            {/* )} */}
         </div>
     );
 };
