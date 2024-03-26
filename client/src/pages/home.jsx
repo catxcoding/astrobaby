@@ -22,22 +22,21 @@ const Home = () => {
         const day = dueDate.getDate();
 
         const cutoffDates = [
-            20, // Aquarius
-            19, // Pisces
-            21, // Aries
-            20, // Taurus
-            21, // Gemini
-            21, // Cancer
-            23, // Leo
-            23, // Virgo
-            23, // Libra
-            23, // Scorpio
-            22, // Sagittarius
-            20, // Capricorn
+            [19, 1], // Aquarius
+            [19, 2], // Pisces
+            [21, 3], // Aries
+            [20, 4], // Taurus
+            [21, 5], // Gemini
+            [21, 6], // Cancer
+            [23, 7], // Leo
+            [23, 8], // Virgo
+            [23, 9], // Libra
+            [23, 10], // Scorpio
+            [22, 11], // Sagittarius
+            [21, 12], // Capricorn
         ];
-
         let adjustedMonth = month;
-        if (day > cutoffDates[month]) {
+        if (day >= cutoffDates[month][0]) {
             adjustedMonth = (month + 1) % 12;
         }
 

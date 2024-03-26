@@ -37,22 +37,13 @@ const typeDefs = `
     user: User
   }
 
-  input ProductInput {
-    _id: ID
-    purchaseQuantity: Int
-    name: String
-    image: String
-    price: Float
-    quantity: Int
-  }
-
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
     order(_id: ID!): Order
-    checkout(products: [ProductInput]): Checkout
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {

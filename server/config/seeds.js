@@ -60,7 +60,7 @@ db.once('open', async () => {
     {
       name: 'Gemini Baby Book',
       description: 'Interactive baby book with dual storytelling for curious Gemini babies!',
-      image: 'gemini-baby-book.jpg',
+      image: 'geminiBabyBook.jpg',
       category: categories[2]._id,
       price: 9.99,
       quantity: 30
