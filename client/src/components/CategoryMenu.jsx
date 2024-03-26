@@ -46,22 +46,23 @@ console.log(categories)
 
     return (
         <div>
-            <Typography variant="h5">Choose a Category:</Typography>
+            <Typography variant="h6" style={{marginTop: "20px", marginBottom: "20px"}}>Choose a Category:</Typography>
             {categories.map((item) => (
                 <Button
                     key={item._id}
                     variant="contained"
                     color="primary"
                     onClick={() => handleClick(item._id)}
-                    style={{ marginRight: 10, marginBottom: 10 }}
+                    style={{ marginRight: 10, marginBottom: 10, marginTop: "20px" }}
                 >
                     {item.name}
                 </Button>
             ))}
             <Button
                 variant="contained"
-                color="primary"
+                
                 onClick={() => handleClick("")}
+                style={{backgroundColor: "black", fontWeight: "bold"}}
             >
                 All
             </Button>

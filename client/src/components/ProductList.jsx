@@ -47,7 +47,7 @@ function ProductList() {
 
     return (
         <Container>
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h5" gutterBottom style={{marginTop: "30px"}}>
                 Our Products:
             </Typography>
             {state.products.length ? (
@@ -73,7 +73,7 @@ function ProductList() {
                     ))}
                 </Grid>
             ) : (
-                <Typography variant="h3">
+                <Typography variant="h6">
                     You haven't added any products yet!
                 </Typography>
             )}
