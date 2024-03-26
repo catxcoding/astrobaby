@@ -2,11 +2,13 @@ const db = require('./connection');
 const { User, Product, Category } = require('../models');
 const cleanDB = require('./cleanDB');
 
+// organizes categories
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
   await cleanDB('Product', 'products');
   await cleanDB('User', 'users');
 
+  // gives category names to the products
   const categories = await Category.insertMany([
     { name: 'Aries' },
     { name: 'Taurus' },
@@ -24,6 +26,7 @@ db.once('open', async () => {
 
   console.log('categories seeded');
 
+  // products that are put into website and products library
   const products = await Product.insertMany([
     {
       name: 'Baby Ram Onesie',
@@ -219,6 +222,7 @@ db.once('open', async () => {
     }
   ]);
 
+  // test accounts for log in process
   console.log('products seeded');
 
   await User.create({

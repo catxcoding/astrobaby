@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import {
     Typography,
@@ -7,19 +9,22 @@ import {
     Card,
     CardContent,
     TextField,
+    Box,
 } from "@mui/material";
-import { BrowserRouter as Router, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [nickname, setNickname] = useState("");
-    const [dueDate, setDueDate] = useState("");
+    const [dueDate, setDueDate] = useState('');
     const [astroSign, setAstroSign] = useState("");
 
-    // Function to calculate astrological sign based on due date
+    const navigate = useNavigate();
 
-    const calculateAstroSign = (dueDate) => {
-        const month = dueDate.getMonth();
-        const day = dueDate.getDate();
+    const calculateAstroSign = () => {
+        if (!dueDate) return;
+        const date = new Date(dueDate);
+        const month = date.getMonth();
+        const day = date.getDate();
 
         const cutoffDates = [
             [19, 1], // Aquarius
@@ -40,121 +45,57 @@ const Home = () => {
             adjustedMonth = (month + 1) % 12;
         }
 
-        const signs = [
-            "Capricorn",
-            "Aquarius",
-            "Pisces",
-            "Aries",
-            "Taurus",
-            "Gemini",
-            "Cancer",
-            "Leo",
-            "Virgo",
-            "Libra",
-            "Scorpio",
-            "Sagittarius",
-        ];
-
+        const signs = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"];
         const astroSign = signs[adjustedMonth];
         setAstroSign(astroSign);
     };
 
-    const history = useNavigate();
-    const goToStorePage = () => {
-        // Logic to navigate to the store page
-        history("/shop");
-    };
-
     return (
-        <div>
-            <Container
-                maxWidth="md"
-                style={{ marginTop: "20px", textAlign: "center" }}
-            >
-                <Typography variant="h2" gutterBottom>
-                    Welcome to AstroBaby!
-                </Typography>
+        <Container maxWidth="md" sx={{ marginTop: "20px", textAlign: "center" }}>
+            {/* Title and Subtitle */}
+            <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Quicksand, sans-serif', fontWeight: 700, fontStyle: 'normal', letterSpacing: '0.3em' }}>
+                ASTROBABY
+            </Typography>
+            <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Quicksand, sans-serif', fontStyle: 'italic' }}>
+                Celestial Gifts for Your Newest Star
+            </Typography>
+            
+            {/* Introductory Text */}
+            <Typography variant="body2" gutterBottom>
+                To get started, enter the baby's expected due date, and follow the link to a list of personalized gift recommendations. Browse through our selection of clothing, toys, and nursery decorations, all chosen to harmonize with the stars.
+            </Typography>
 
-                <Typography variant="h6" gutterBottom>
-                    ** about astro baby **
-                </Typography>
-                <Grid container spacing={3} justifyContent="center">
-                    <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom>
-                                    Baby Information
-                                </Typography>
-                                <TextField
-                                    label="Nickname"
-                                    variant="outlined"
-                                    fullWidth
-                                    value={nickname}
-                                    onChange={(e) =>
-                                        setNickname(e.target.value)
-                                    }
-                                    style={{ marginBottom: "10px" }}
-                                />
-                                {/* <TextField
-                                    label="Due Date"
-                                    type=""
-                                    variant="outlined"
-                                    fullWidth
-                                    value={dueDate}
-                                    onChange={(e) => setDueDate(e.target.value)}
-                                    style={{ marginBottom: "10px" }}
-                                /> */}
-                                {/* <LocalizationProvider
-                                    dateAdapter={AdapterDayjs}
-                                >
-                                    <DateCalendar />
-                                </LocalizationProvider> */}
+            <Card sx={{ maxWidth: 345, mx: "auto" }}>
+                <CardContent>
+                    <Typography variant="h5" gutterBottom>
+                        Baby Information
+                    </Typography>
+                    <TextField label="Nickname" variant="outlined" fullWidth value={nickname} onChange={(e) => setNickname(e.target.value)} sx={{ mb: 2 }} />
+                    <Typography variant="h6" gutterBottom>
+                        Estimated Due Date
+                    </Typography>
+                    <TextField type="date" fullWidth value={dueDate} onChange={(e) => setDueDate(e.target.value)} sx={{ mb: 2 }} />
+                    <Button variant="contained" onClick={calculateAstroSign} sx={{ mb: 2 }}>
+                        Calculate Astro Sign
+                    </Button>
+                    {astroSign && (
+                        <>
+                            <Typography variant="body1" sx={{ mt: 2 }}>
+                                Astrological Sign: {astroSign}
+                            </Typography>
+                            <Button variant="contained" onClick={() => navigate("/shop")} sx={{ mt: 2 }}>
+                                Go to Store
+                            </Button>
+                        </>
+                    )}
+                </CardContent>
+            </Card>
 
-                                <input type="date" 
-                                    value={dueDate}
-                                    onChange={(e) => setDueDate(e.target.value)}
-                                    style={{ marginBottom: "10px" }}
-                                />
-
-                                <br />
-                                <br />
-                                <Button
-                                    variant="contained"
-                                    onClick={() =>
-                                        calculateAstroSign(new Date(dueDate))
-                                    }
-                                >
-                                    Calculate Astro Sign
-                                </Button>
-                                {astroSign && (
-                                    <Typography
-                                        variant="body1"
-                                        style={{ marginTop: "10px" }}
-                                    >
-                                        Astrological Sign: {astroSign}
-                                    </Typography>
-                                )}
-                                {astroSign && (
-                                    <Button
-                                        variant="contained"
-                                        onClick={goToStorePage}
-                                        style={{ marginTop: "10px" }}
-                                    >
-                                        Go to Store
-                                    </Button>
-                                )}
-                                <br />
-                                <br />
-
-                                <Typography variant="small" gutterBottom>
-                                    ** notes on accuracy of astrological sign **
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </Container>
-        </div>
+            {/* Additional Information Text */}
+            <Typography variant="body2" gutterBottom sx={{ mt: 4 }}>
+                At Astro Baby, we understand that the universe is constantly in motion, and so too are the celestial energies that shape our astrological signs. While traditional astrology assigns signs based on birthdates, the exact moment of birth can influence the alignment of the stars and potentially shift your child's astrological sign. This means that paying attention to the due date is crucial, as a baby born just before or after midnight could fall under a different zodiac sign. Our mission is to celebrate the dynamic nature of astrology and provide you with meaningful gifts that honor the unique cosmic blueprint of your little one, no matter when they decide to make their grand entrance into the world.
+            </Typography>
+        </Container>
     );
 };
 

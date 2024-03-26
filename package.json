@@ -4,24 +4,28 @@
     "description": "Full-stack MERN application with Vite/React frontend and GraphQL backend.",
     "scripts": {
         "start": "node server/server.js",
-        "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+        "start-all": "npm run install-all && npm run seed && concurrently \"npm run server\" \"npm run client\"",
+        "install-all": "npm run install:server && npm run install:client",
         "install:server": "cd server && npm install",
         "install:client": "cd client && npm install",
-        "seed": "node server/config/seeds.js",
-        "build": "cd server &&  npm install &&  cd ../client && npm install  && npm run build",
+        "seed": "cd server && npm run seed",
+        "server": "cd server && npm start",
+        "client": "cd client && npm start",
+        "build": "npm run build:client && npm run copy:build && npm install --prefix server",
         "build:client": "cd client && npm run build",
-        "build:server": "cd server && npm run build",
-        "render-build": "npm install && npm run build"
+        "copy:build": "cp -R client/dist/* server/public/"
     },
     "dependencies": {
         "@apollo/server": "^4.10.1",
         "@mui/lab": "^5.0.0-alpha.169",
         "bcrypt": "^5.1.1",
-        "concurrently": "^8.2.2",
         "express": "^4.18.3",
         "graphql": "^16.8.1",
         "jsonwebtoken": "^8.5.1",
         "mongodb": "^6.5.0"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
 }

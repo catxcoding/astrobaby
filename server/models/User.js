@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
 
+// a schema for the sign up process
 const userSchema = new Schema({
   firstName: {
     type: String,
