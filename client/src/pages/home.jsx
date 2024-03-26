@@ -19,28 +19,61 @@ const Home = () => {
     const [astroSign, setAstroSign] = useState("");
     const [showStore, setShowStore] = useState(false);
 
-    // Function to calculate astrological sign based on due date
-    const calculateAstroSign = () => {
-        // Your logic to calculate the astrological sign based on the due date
-        // For simplicity, let's assume astro sign is based on the month of the due date
-        const month = new Date(dueDate).getMonth();
-        const signs = [
-            "Capricorn",
-            "Aquarius",
-            "Pisces",
-            "Aries",
-            "Taurus",
-            "Gemini",
-            "Cancer",
-            "Leo",
-            "Virgo",
-            "Libra",
-            "Scorpio",
-            "Sagittarius",
+    const calculateAstroSign = (dueDate) => {
+        const month = dueDate.getMonth();
+        const day = dueDate.getDate();
+    
+        // Define the cutoff day for each astrological sign
+        const cutoffDates = [
+            20, // Aquarius
+            19, // Pisces
+            21, // Aries
+            20, // Taurus
+            21, // Gemini
+            21, // Cancer
+            23, // Leo
+            23, // Virgo
+            23, // Libra
+            23, // Scorpio
+            22, // Sagittarius
+            20  // Capricorn
         ];
+    
+        // Adjust the month if the day is past the cutoff date
+        if (day > cutoffDates[month]) {
+            month = (month + 1) % 12; // Move to the next month, wrapping around to January if needed
+        }
+    
+        const signs = [
+            "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini",
+            "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"
+        ];
+    
         const astroSign = signs[month];
-        setAstroSign(astroSign);
+        return astroSign;
     };
+    // Function to calculate astrological sign based on due date
+    // const calculateAstroSign = () => {
+    //     // Your logic to calculate the astrological sign based on the due date
+    //     // For simplicity, let's assume astro sign is based on the month of the due date
+    //     const month = new Date(dueDate).getMonth();
+    //     const signs = [
+    //         "Capricorn",
+    //         "Aquarius",
+    //         "Pisces",
+    //         "Aries",
+    //         "Taurus",
+    //         "Gemini",
+    //         "Cancer",
+    //         "Leo",
+    //         "Virgo",
+    //         "Libra",
+    //         "Scorpio",
+    //         "Sagittarius",
+    //     ];
+    //     const astroSign = signs[month];
+    //     setAstroSign(astroSign);
+    // };
 
     // const goToStorePage = () => {
     //   setShowStore(true);
