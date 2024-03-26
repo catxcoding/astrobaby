@@ -60,6 +60,9 @@ import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
+import myLogo from '../../../public/images/logo.png';
+
+import './app.css';
 function Nav() {
     function showNavigation() {
         if (Auth.loggedIn()) {
@@ -78,7 +81,7 @@ function Nav() {
             );
         } else {
             return (
-                <Toolbar>
+                <Toolbar className="linksContainer" >
                     <Button component={Link} to="/signup" color="inherit">
                         Signup
                     </Button>
@@ -93,7 +96,7 @@ function Nav() {
     return (
         <AppBar
             position="static"
-            style={{ backgroundColor: "#add8e6", width: "100%" }}
+           className="myNav"
         >
             <Toolbar
                 style={{
@@ -109,7 +112,12 @@ function Nav() {
                     style={{ flexGrow: 1, fontWeight: "bold" }}
                 >
                     <span role="img" aria-label="AstroBaby"></span>
-                    AstroBaby
+                    
+
+                    <img className="logo" src={myLogo} alt="" style={{
+                        width: '70px',
+                        marginTop: '10px',
+                    }} />
                 </Typography>
                 {showNavigation()}
             </Toolbar>
