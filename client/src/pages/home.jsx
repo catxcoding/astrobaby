@@ -148,7 +148,7 @@ const Home = () => {
                                 <br />
 
                                 <Typography variant="small" gutterBottom>
-                                    ** notes on accuracy of astrological sign **
+                                At Astro Baby, we understand that the universe is constantly in motion, and so too are the celestial energies that shape our astrological signs. While traditional astrology assigns signs based on birthdates, the exact moment of birth can influence the alignment of the stars and potentially shift your child's astrological sign. This means that paying attention to the due date is crucial, as a baby born just before or after midnight could fall under a different zodiac sign. Our mission is to celebrate the dynamic nature of astrology and provide you with meaningful gifts that honor the unique cosmic blueprint of your little one, no matter when they decide to make their grand entrance into the world.
                                 </Typography>
                             </CardContent>
                         </Card>
