@@ -3,10 +3,10 @@
 Welcome to ASTROBABY, an innovative e-commerce platform designed specifically for expecting parents, family, and friends. Our unique approach integrates astrology into the shopping experience, offering personalized product recommendations based on the astrological signs of upcoming newborns. From clothing and toys to nursery decorations, ASTROBABY ensures that every gift you choose aligns with the stars.
 
 
-![ASTROBABY Logo](path/to/logo.png)
+![ASTROBABY Logo](client/public/images/logo.png)
 
 
-![ASTROBABY Screenshot](path/to/screenshot.png)
+![ASTROBABY Screenshot](client/public/images/screenshots/home.jpg)
 
 ## Project Overview
 
@@ -17,7 +17,7 @@ ASTROBABY is built with the modern MERN stack - MongoDB, Express.js, React, and 
 -   **Astrology-Based Product Recommendations**: Curate products based on astrological signs for a personalized touch.
 -   **User Authentication**: Secure login and user account management with JWT.
 -   **Dynamic Shopping Cart**: Users can add, update, and remove products from their cart.
--   **Stripe Integration**: COMING SOON A secure and straightforward checkout process powered by Stripe. 
+-   **Stripe Integration**: A secure and straightforward checkout process powered by Stripe. 
 -   **Responsive Design**: A polished UI that's responsive across all devices.
 
 ## Technologies Used
@@ -27,7 +27,7 @@ ASTROBABY is built with the modern MERN stack - MongoDB, Express.js, React, and 
 -   Database: MongoDB with Mongoose ODM
 -   API: GraphQL for queries and mutations
 -   Authentication: JWT
--   Payment Processing: COMING SOON Stripe
+-   Payment Processing: Stripe
 -   Deployment: Render
 
 ## Links
@@ -91,19 +91,18 @@ ASTROBABY is built with the modern MERN stack - MongoDB, Express.js, React, and 
 ASTROBABY is deployed on [Render](https://astrobaby.onrender.com/)
 
 ### Products
-![ASTROBABY Products](path/to/products.png)
+![ASTROBABY Products](client/public/images/screenshots/cart.jpg)
 
 ### Sign Up Page
-![ASTROBABY Sign Up](path/to/signup.png)
+![ASTROBABY Sign Up](client/public/images/screenshots/signup.jpg)
 
 ### Log In Page
-![ASTROBABY Log In](path/to/login.png)
+![ASTROBABY Log In](client/public/images/screenshots/login.jpg)
 
 ## Future Developments
 
 ASTROBABY is committed to enhancing your shopping and astrological experience with continuous improvements and new features. Here are some of the exciting developments we're planning for the future:
 
-- **Connect Stripe**: Integrate Stripe for secure and efficient online payments.
 - **Loading Page**: Implement a stylish loading page featuring our logo for a smoother user experience.
 - **Registry or Favorites**: Allow users to create a registry or list of favorite products for easy sharing with friends and family.
 - **Send Registry Link**: Enable users to send their registry link to friends and family, making gift-giving simple and personal.
