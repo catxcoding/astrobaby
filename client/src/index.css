@@ -294,7 +294,10 @@ input:focus {
 * {
   box-sizing: border-box;
 }
-
+a:hover, button:hover{
+  /* cursor: url("https://cdn.mos.cms.futurecdn.net/PSNERaqdmdWgjwGVTEA6nd.jpg"), auto; */
+  cursor:col-resize;
+}
 html,
 body {
   min-height: 100%;
@@ -303,6 +306,7 @@ body {
 body {
   margin: 0;
   padding: 0;
+ 
   font-family: 'Karla', sans-serif;
   font-weight: 400;
   line-height: 1.5;
@@ -410,7 +414,7 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 100%;
 }
 
 input {
@@ -440,7 +444,7 @@ input:focus {
 }
 
 .space-between {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .flex-end {

@@ -68,7 +68,17 @@ const Home = () => {
 
     return (
         <div>
-            <Container maxWidth="md" style={{ marginTop: "20px" }}>
+            <Container
+                maxWidth="md"
+                style={{ marginTop: "20px", textAlign: "center" }}
+            >
+                <Typography variant="h2" gutterBottom>
+                    Welcome to AstroBaby!
+                </Typography>
+
+                <Typography variant="h6" gutterBottom>
+                    ** about astro baby **
+                </Typography>
                 <Grid container spacing={3} justifyContent="center">
                     <Grid item xs={12}>
                         <Card>
@@ -86,7 +96,7 @@ const Home = () => {
                                     }
                                     style={{ marginBottom: "10px" }}
                                 />
-                                <TextField
+                                {/* <TextField
                                     label="Due Date"
                                     type=""
                                     variant="outlined"
@@ -94,7 +104,21 @@ const Home = () => {
                                     value={dueDate}
                                     onChange={(e) => setDueDate(e.target.value)}
                                     style={{ marginBottom: "10px" }}
+                                /> */}
+                                {/* <LocalizationProvider
+                                    dateAdapter={AdapterDayjs}
+                                >
+                                    <DateCalendar />
+                                </LocalizationProvider> */}
+
+                                <input type="date" 
+                                    value={dueDate}
+                                    onChange={(e) => setDueDate(e.target.value)}
+                                    style={{ marginBottom: "10px" }}
                                 />
+
+                                <br />
+                                <br />
                                 <Button
                                     variant="contained"
                                     onClick={() =>
@@ -120,6 +144,12 @@ const Home = () => {
                                         Go to Store
                                     </Button>
                                 )}
+                                <br />
+                                <br />
+
+                                <Typography variant="small" gutterBottom>
+                                    ** notes on accuracy of astrological sign **
+                                </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
