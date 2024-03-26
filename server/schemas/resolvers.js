@@ -1,6 +1,6 @@
 const { User, Product, Category, Order } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('pk_test_51OxtV5DbZLGXtOEnLmMqJnsyhIkFu7ldU9CvSWb6lvuul4n71xSiQRqy1bE5DEULWrwwB8PbbMuCCATTkVsAv9J200fbjXOscU');
 
 const resolvers = {
   Query: {
@@ -53,6 +53,7 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
+      // console.log(url)
       await Order.create({ products: args.products.map(({ _id }) => _id) });
       // eslint-disable-next-line camelcase
       const line_items = [];

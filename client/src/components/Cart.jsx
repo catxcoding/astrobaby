@@ -9,15 +9,15 @@ import { useStoreContext } from "../utils/GlobalState";
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../utils/actions";
 import { Button, Typography, Box } from "@mui/material";
 
-// stripePromise returns a promise with the stripe object as soon as the Stripe package loads
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+// Stripe promise
+const stripePromise = loadStripe(
+    "pk_test_51OxtV5DbZLGXtOEnLmMqJnsyhIkFu7ldU9CvSWb6lvuul4n71xSiQRqy1bE5DEULWrwwB8PbbMuCCATTkVsAv9J200fbjXOscU"
+);
 
 const Cart = () => {
     const [state, dispatch] = useStoreContext();
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-    // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
-    // Then we should redirect to the checkout with a reference to our session id
     useEffect(() => {
         if (data) {
             stripePromise.then((res) => {
@@ -26,8 +26,6 @@ const Cart = () => {
         }
     }, [data]);
 
-    // If the cart's length or if the dispatch function is updated, check to see if the cart is empty.
-    // If so, invoke the getCart method and populate the cart with the existing from the session
     useEffect(() => {
         async function getCart() {
             const cart = await idbPromise("cart", "get");
@@ -51,9 +49,7 @@ const Cart = () => {
         return sum.toFixed(2);
     }
 
-    // When the submit checkout method is invoked, loop through each item in the cart
-    // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our products
-    function submitCheckout() {
+    async function submitCheckout() {
         getCheckout({
             variables: {
                 products: [...state.cart],
@@ -61,58 +57,76 @@ const Cart = () => {
         });
     }
 
-    if (!state.cartOpen) {
-        return (
-            <div className="cart-closed" onClick={toggleCart}>
-                <span role="img" aria-label="trash">
-                    🛒
-                </span>
-            </div>
-        );
-    }
-
     return (
-        <div className="cart">
-            <div className="close" onClick={toggleCart}>
-                [close]
-            </div>
-            <Typography variant="h4">Shopping Cart</Typography>
-            {state.cart.length ? (
-                <div>
-                    {state.cart.map((item) => (
-                        <CartItem key={item._id} item={item} />
-                    ))}
-
-                    <Box display="flex" justifyContent="space-between" mt={2}>
-                        <Typography variant="h6">
-                            <strong>Total: ${calculateTotal()}</strong>
-                        </Typography>
-
-                        {/* Check to see if the user is logged in. If so render a button to check out */}
-                        {Auth.loggedIn() ? (
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={submitCheckout}
-                            >
-                                Checkout
-                            </Button>
-                        ) : (
-                            <Typography variant="body1">
-                                (log in to check out)
-                            </Typography>
-                        )}
-                    </Box>
+        <>
+            {!state.cartOpen ? (
+                <div className="cart-closed" onClick={toggleCart}>
+                    <span role="img" aria-label="trash">
+                        🛒
+                    </span>
                 </div>
             ) : (
-                <Typography variant="h6">
-                    <span role="img" aria-label="shocked">
-                        😱
-                    </span>
-                    You haven't added anything to your cart yet!
-                </Typography>
+                <Box
+                    className="cart"
+                    sx={{
+                        position: "fixed",
+                        top: "64px", // Adjust this value according to your nav height
+                        right: 0,
+                        minWidth: "20%",
+                        maxWidth: "30%",
+                        maxHeight: "60%",
+                        backgroundColor: "var(--light)",
+                        overflow: "auto",
+                        padding: ".5rem",
+                        boxShadow: "0 0 1rem rgba(0, 0, 0, .5)",
+                        borderBottomLeftRadius: ".5rem",
+                    }}
+                >
+                    <div className="close" onClick={toggleCart}>
+                        [close]
+                    </div>
+                    <Typography variant="h4">Shopping Cart</Typography>
+                    {state.cart.length ? (
+                        <div>
+                            {state.cart.map((item) => (
+                                <CartItem key={item._id} item={item} />
+                            ))}
+
+                            <Box
+                                display="flex"
+                                justifyContent="space-between"
+                                mt={2}
+                            >
+                                <Typography variant="h6">
+                                    <strong>Total: ${calculateTotal()}</strong>
+                                </Typography>
+
+                                {Auth.loggedIn() ? (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={submitCheckout}
+                                    >
+                                        Checkout
+                                    </Button>
+                                ) : (
+                                    <Typography variant="body1">
+                                        (log in to check out)
+                                    </Typography>
+                                )}
+                            </Box>
+                        </div>
+                    ) : (
+                        <Typography variant="h6">
+                            <span role="img" aria-label="shocked">
+                                😱
+                            </span>
+                            You haven't added anything to your cart yet!
+                        </Typography>
+                    )}
+                </Box>
             )}
-        </div>
+        </>
     );
 };
 
