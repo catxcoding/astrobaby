@@ -20,7 +20,7 @@ console.log(data)
 
     return (
         <Container className="my-1">
-            <Link to="/" style={{ marginBottom: "1rem", display: "block" }}>
+            <Link to="/shop" style={{ marginBottom: "1rem", display: "block" }}>
                 ← Back to Products
             </Link>
 

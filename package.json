@@ -9,10 +9,10 @@
         "install:server": "cd server && npm install",
         "install:client": "cd client && npm install",
         "seed": "cd server && npm run seed",
-        "build": "npm run build:client && npm run build:server",
+        "build": "npm run render-build && npm run build:client && npm run build:server",
         "build:client": "cd client && npm run build",
         "build:server": "cd server && npm run build",
-        "heroku-postbuild": "npm run build"
+        "render-build":"npm install && npm run build"
     },
     "dependencies": {
         "@apollo/server": "^4.10.1",
