@@ -22,7 +22,8 @@
         "graphql": "^16.8.1",
         "jsonwebtoken": "^9.0.2",
         "mongodb": "^6.5.0",
-        "mongoose": "^7.0.2"
+        "mongoose": "^7.0.2",
+        "stripe": "^14.22.0"
     },
     "devDependencies": {
         "eslint": "^8.57.0"

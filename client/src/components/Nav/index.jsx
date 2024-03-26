@@ -65,7 +65,7 @@ function Nav() {
         if (Auth.loggedIn()) {
             return (
                 <Toolbar>
-                    <Button component={Link} to="/categoryMenu" color="inherit">
+                    <Button component={Link} to="/shop" color="inherit">
                         Products
                     </Button>
                     <Button component={Link} to="/orderHistory" color="inherit">
@@ -118,4 +118,3 @@ function Nav() {
 }
 
 export default Nav;
-
