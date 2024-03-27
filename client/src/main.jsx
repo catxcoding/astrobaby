@@ -51,7 +51,7 @@ import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import Shop from "./pages/shop";
 import Detail from "./pages/Detail";
-import Success from './pages/Sucess';
+import Success from './pages/Success';
 import OrderHistory from "./pages/orderHistory";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
