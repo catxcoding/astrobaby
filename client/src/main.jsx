@@ -51,6 +51,7 @@ import Login from "./pages/login";
 import Signup from "./pages/Signup";
 import Shop from "./pages/shop";
 import Detail from "./pages/Detail";
+import Success from './pages/Success';
 import OrderHistory from "./pages/orderHistory";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
                 path: "/shop",
                 element: <Shop />,
             },
+            {
+                path: '/success',
+                element: <Success />
+              },
             {
                 path: "/orderHistory",
                 element: <OrderHistory />,

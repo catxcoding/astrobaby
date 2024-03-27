@@ -26,10 +26,22 @@ const Home = () => {
         const month = date.getMonth();
         const day = date.getDate();
 
-        const cutoffDates = [20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22, 20];
-
+        const cutoffDates = [
+            [19, 1], // Aquarius
+            [19, 2], // Pisces
+            [21, 3], // Aries
+            [20, 4], // Taurus
+            [21, 5], // Gemini
+            [21, 6], // Cancer
+            [23, 7], // Leo
+            [23, 8], // Virgo
+            [23, 9], // Libra
+            [23, 10], // Scorpio
+            [22, 11], // Sagittarius
+            [21, 12], // Capricorn
+        ];
         let adjustedMonth = month;
-        if (day > cutoffDates[month]) {
+        if (day >= cutoffDates[month][0]) {
             adjustedMonth = (month + 1) % 12;
         }
 
